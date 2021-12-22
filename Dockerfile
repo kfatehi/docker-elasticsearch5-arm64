@@ -7,10 +7,14 @@ RUN useradd -s /usr/bin/bash -d /home/elasticsearch -m elasticsearch
 
 RUN apt-get update && apt-get upgrade -y && apt install curl -y
 
-COPY jre-8u311-linux-x64.tar.gz /home/elasticsearch
-
 RUN mkdir /opt/jre
+
+
 RUN curl -SLO https://keyvan.cloud/files/jre-8u311-linux-x64.tar.gz
+
+# You can switch to JRE9 by using this URL
+# https://keyvan.cloud/files/jre-9.0.1_linux-x64_bin.tar.gz
+
 RUN tar -zxf jre-8u311-linux-x64.tar.gz -C /opt/jre
 RUN update-alternatives --install /usr/bin/java java /opt/jre/jre1.8.0_311/bin/java 100
 RUN update-alternatives --display java
