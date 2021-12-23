@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM  --platform=linux/amd64 ubuntu:20.04
 
 ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -8,7 +8,6 @@ RUN useradd -s /usr/bin/bash -d /home/elasticsearch -m elasticsearch
 RUN apt-get update && apt-get upgrade -y && apt install curl -y
 
 RUN mkdir /opt/jre
-
 
 RUN curl -SLO https://keyvan.cloud/files/jre-9.0.1_linux-x64_bin.tar.gz
 
@@ -23,6 +22,7 @@ RUN mkdir /usr/share/elasticsearch/logs && chown elasticsearch:elasticsearch /us
 RUN mkdir /usr/share/elasticsearch/data && chown elasticsearch:elasticsearch /usr/share/elasticsearch/data
 
 COPY config /usr/share/elasticsearch/config
+RUN mkdir /usr/share/elasticsearch/config/scripts
 
 USER elasticsearch
 
