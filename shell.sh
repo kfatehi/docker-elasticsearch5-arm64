@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --rm -it myelasticsearch bash
+docker run --platform linux/x86_64 --rm -it myelasticsearch bash
