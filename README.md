@@ -1,10 +1,8 @@
-this branch is a docker image with ES5.6.4 on Java9 built on an M1 chip
-
-It seems building it on the machine caused it to run properly.
+ElasticSearch 5.6.4 on OpenJDK 8 built for use on Apple Silicon
 
 Public tag:
 
-`keyvanfatehi/elasticsearch:5.6.4_jre9_m1`
+`keyvanfatehi/elasticsearch:5.6.4_openjdk8_arm64`
 
 Web Link:
 
